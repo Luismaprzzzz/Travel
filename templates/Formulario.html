@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="./static/css/cuadro.css" type="text/css">
+</head>
+<body>
+<div class="navegacion">
+<nav class="navbar ">
+
+
+
+    <a class="nav-link active" aria-current="page" href="/"><h2>Inicio</h2></a>
+
+    <a class="nav-link" href="/inf"><h2>Informacion</h2></a>
+
+    <a class="nav-link" href="#"><h2>...</h2></a>
+
+</nav>
+
+</div>
+
+<div class="mtex">
+<h2>Registro de viajes </h2>
+<p>Para nosotros es importante tu seguridad así que te invitamos a registar tu viaje para obtener ayuda
+y accesoramiento en todo momento</p>
+</div>
+
+
+<div class="datos text-center">
+
+    <form action="/Agregar" method="POST">
+    <label>Nombre del guia</label>
+    <br>
+    <input type="text"  required>
+    <br>
+
+    <label>hora inicio</label>
+    <br>
+    <input type="time" required>
+    <br>
+
+    <label>hora final</label>
+    <br>
+    <input type="time" required>
+    <br>
+
+    <label>fecha</label>
+    <br>
+    <input type="date"  id="exampleInputEmail1" aria-describedby="emailHelp">
+    <br>
+
+    <label>Ruta</label>
+    <br>
+    <input type="text"  required>
+    <br>
+        </form>
+
+</div>
+<table>
+    <thead>
+    <tr>
+    <td>Nombre</td>
+     <td>Inicio</td>
+     <td>Final</td>
+     <td>Fecha</td>
+     <td>Ruta</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for viaje in viajes%}
+    <tr>
+        <td>{{viaje.1}}</td>
+        <td>{{viaje.2}}</td>
+        <td>{{viaje.3}}</td>
+        <td>{{viaje.4}}</td>
+        <td>{{viaje.5}}</td>
+        <td>
+            <a href="/Editar/{{viaje.0}}">Editar</a>
+             <a href="/Eliminar/{{viaje.0}}">Eliminar</a>
+
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="rs text-center">
+    <a class="btn btn-outline-light" href="/Registrar" role="button"><p>Crear</p></a>
+    <br>
+</div>
+
+<div class="fot">
+        <img src="./static/images/mon.jpg" alt="" width="100" height=100" class="d-inline-block align-text-center">
+
+
+</div>
+</body>
+</html>
